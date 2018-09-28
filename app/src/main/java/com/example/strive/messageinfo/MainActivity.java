@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements MessageView {
 //                node.setData("2018-9-27");
 //                node.setType("私有笔记>");
 //                node.setContent("笔记的中心内容");
-//                node.setComment(2);
+//                node.setCohhjkmment(2);
 //                node.setLike(2);
 //                list.add(node);
 //                adapters.notifyDataSetChanged();
