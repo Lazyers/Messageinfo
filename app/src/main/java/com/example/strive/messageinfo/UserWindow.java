@@ -21,16 +21,6 @@ public class UserWindow extends AppCompatActivity implements View.OnClickListene
         view.setVisibility(View.GONE);
         setContentView(R.layout.activity_user_window);
 
-//        setFinishOnTouchOutside(false);
-//        WindowManager m = getWindowManager();
-//        Display d = m.getDefaultDisplay();  //为获取屏幕宽、高
-//        WindowManager.LayoutParams p = getWindow().getAttributes();  //获取对话框当前的参数值
-//        p.height = (int) (d.getHeight() * 0.6);   //高度设置为屏幕的0.6
-//        p.width = (int) (d.getWidth() * 0.7);    //宽度设置为屏幕的0.7
-//        p.alpha = 1.0f;      //设置本身透明度
-//        p.dimAmount = 0.5f;      //设置窗口外黑暗度
-//        getWindow().setAttributes(p);
-
         statName = findViewById(R.id.stat_name);
         userNum = findViewById(R.id.userNum);
         nodeNum = findViewById(R.id.nodeNum);

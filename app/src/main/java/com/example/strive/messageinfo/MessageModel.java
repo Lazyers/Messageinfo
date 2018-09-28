@@ -8,20 +8,13 @@ import java.util.List;
 public class MessageModel {
     private static int num = 0;
     private final static int size = 5;
-
-
-
     public static void getNetworkData(final MessageCallback callback) {
-
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 showData(callback);
             }
         },2000);
-
-
     }
 
     private static void showData(final MessageCallback callback){
