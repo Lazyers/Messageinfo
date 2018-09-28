@@ -168,7 +168,6 @@ class MessageAdapters extends RecyclerView.Adapter< RecyclerView.ViewHolder> {
             });
             return holder;
         } else {
-            // recommend
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.recommend_node_item,parent,false);
             RecommendViewHolder holder = new RecommendViewHolder(view);
@@ -180,8 +179,6 @@ class MessageAdapters extends RecyclerView.Adapter< RecyclerView.ViewHolder> {
             return holder;
         }
     }
-
-
     @Override
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, int position) {
         if (getItemViewType(position) == NORMAL) {

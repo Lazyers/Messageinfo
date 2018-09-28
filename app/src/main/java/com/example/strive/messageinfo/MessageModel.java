@@ -16,11 +16,8 @@ public class MessageModel {
             }
         },2000);
     }
-
     private static void showData(final MessageCallback callback){
-
         List<Node> list = new ArrayList<>();
-
         for (int i = num; i > 0; i--) {
             Node node = new Node();
             node.setImageURL(R.drawable.plxl);
