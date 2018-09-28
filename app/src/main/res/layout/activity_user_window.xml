@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserWindow">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/stat_name"
+        android:text="name"
+        android:gravity="center"/>
+    <Button
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:text="?"
+        android:textSize="10dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/infor"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/stat_name">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#EAEAEA"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/userNum"
+            android:text="userNum :"
+            android:layout_margin="10dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#EAEAEA"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/nodeNum"
+            android:text="nodeNum :"
+            android:layout_margin="10dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#EAEAEA"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/followNum"
+            android:text="followNum :"
+            android:layout_margin="10dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#EAEAEA"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/collectNum"
+            android:text="collectNum :"
+            android:layout_margin="10dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="#EAEAEA"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/readNum"
+            android:text="readNum :"
+            android:layout_margin="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#EAEAEA"
+            android:text="个创作专题"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:id="@+id/creat"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="collectNum"
+            android:id="@+id/personcollect"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"/>
+    </LinearLayout>
+
+</RelativeLayout>
