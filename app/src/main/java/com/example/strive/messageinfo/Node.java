@@ -1,20 +1,18 @@
 package com.example.strive.messageinfo;
 
 import java.util.List;
-
-// TODO 为保证变量不被直接访问到，前面加上private
 public class Node {
-    int imageURL;
-    String name;
-    String data;
-    int stat;
-    String type;
-    int comment;
-    String commentContent;
-    int like;
-    String content;
-    List<Recomment> recommentList;
-    Status status;
+    private int imageURL;
+    private String name;
+    private String data;
+    private int stat;
+    private String type;
+    private int comment;
+    private String commentContent;
+    private int like;
+    private String content;
+    private List<Recomment> recommentList;
+    private Status status;
 
     public Status getStatus() {
         return status;
