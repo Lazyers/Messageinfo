@@ -2,6 +2,7 @@ package com.example.strive.messageinfo;
 
 import java.util.List;
 
+// TODO 为保证变量不被直接访问到，前面加上private
 public class Node {
     int imageURL;
     String name;
