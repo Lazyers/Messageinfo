@@ -1,7 +1,8 @@
 package com.example.strive.messageinfo.entity;
 
+import java.io.Serializable;
 import java.util.List;
-public class Node {
+public class Node implements Serializable {
     private int imageURL;
     private String name;
     private String data;

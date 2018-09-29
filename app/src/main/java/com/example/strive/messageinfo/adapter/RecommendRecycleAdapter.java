@@ -1,4 +1,4 @@
-package com.example.strive.messageinfo;
+package com.example.strive.messageinfo.adapter;
 
 import android.graphics.Color;
 import android.support.annotation.NonNull;
@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.strive.messageinfo.R;
 import com.example.strive.messageinfo.entity.Recommend;
 
 import java.util.ArrayList;

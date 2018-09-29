@@ -1,4 +1,4 @@
-package com.example.strive.messageinfo;
+package com.example.strive.messageinfo.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,14 +15,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.strive.messageinfo.R;
 import com.example.strive.messageinfo.entity.Node;
 import com.example.strive.messageinfo.entity.Status;
+import com.example.strive.messageinfo.ui.PersonAllInformationActivity;
 import com.example.strive.messageinfo.ui.UserWindow;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class MessageAdapter extends RecyclerView.Adapter< RecyclerView.ViewHolder> {
+public class MessageAdapter extends RecyclerView.Adapter< RecyclerView.ViewHolder> {
 
     private List<Node> list = new ArrayList<>();
     private OnItemClickListener onItemClickListener;
@@ -181,6 +183,18 @@ class MessageAdapter extends RecyclerView.Adapter< RecyclerView.ViewHolder> {
                         list.get(position).setLike(list.get(position).getLike() - 1);
                         notifyDataSetChanged();
                     }
+                }
+            });
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = holder.getAdapterPosition();
+                    Intent intent = new Intent(activity,PersonAllInformationActivity.class);
+                    Bundle bundle = new Bundle();
+                    Node node = list.get(position);
+                    bundle.putSerializable("node",node);
+                    intent.putExtras(bundle);
+                    activity.startActivity(intent);
                 }
             });
             return holder;

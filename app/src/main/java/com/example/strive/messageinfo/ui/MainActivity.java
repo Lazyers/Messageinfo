@@ -1,22 +1,21 @@
-package com.example.strive.messageinfo;
+package com.example.strive.messageinfo.ui;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.Toast;
 
+import com.example.strive.messageinfo.adapter.MessageAdapter;
+import com.example.strive.messageinfo.R;
 import com.example.strive.messageinfo.entity.Node;
 import com.example.strive.messageinfo.mvp.MessagePresenter;
 import com.example.strive.messageinfo.mvp.MessageView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-// todo Java文件应该根据功能的不同放在不同的包里
 /**
  * com.example.strive.messageinfo下有如下包：
  *
@@ -69,12 +68,6 @@ public class MainActivity extends AppCompatActivity implements MessageView {
                         LinearLayoutManager.VERTICAL,
                         false));
         adapters = new MessageAdapter(this);
-        adapters.setOnItemClickListener(new MessageAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position, Node data) {
-                Toast.makeText(MainActivity.this, "点击了", Toast.LENGTH_SHORT).show();
-            }
-        });
         recyclerView.setAdapter(adapters);
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -108,5 +101,10 @@ public class MainActivity extends AppCompatActivity implements MessageView {
         super.onDestroy();
         messagePresenter.detachView();
         swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
