@@ -1,4 +1,6 @@
-package com.example.strive.messageinfo;
+package com.example.strive.messageinfo.mvp;
+
+import com.example.strive.messageinfo.entity.Node;
 
 import java.util.List;
 
@@ -16,8 +18,8 @@ public class MessagePresenter {
         return messageView != null;
     }
 
-    public void getData(){
-        MessageModel.getNetworkData(new MessageCallback() {
+    public void getData(int flag){
+        MessageModel.getNetworkData(flag,new MessageCallback() {
             @Override
             public void onSuccess(List<Node> nodeList) {
                 //显示数据

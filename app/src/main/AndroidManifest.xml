@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UserWindow"
+            android:name=".ui.UserWindow"
             android:theme="@style/Theme.AppCompat.Light.Dialog"
             android:label="@string/app_name"
 

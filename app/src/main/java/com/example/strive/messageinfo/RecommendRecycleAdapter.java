@@ -12,13 +12,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.strive.messageinfo.entity.Recommend;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class RecommendRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    List<Recomment> list = new ArrayList<>();
+    List<Recommend> list = new ArrayList<>();
     private OnItemClickListener onItemClickListener;
-    public void setData(List<Recomment> list){
+    public void setData(List<Recommend> list){
         this.list.clear();
         this.list.addAll(list);
         notifyDataSetChanged();
@@ -110,16 +112,16 @@ public class RecommendRecycleAdapter extends RecyclerView.Adapter<RecyclerView.V
         return list.size();
     }
     public interface OnItemClickListener {
-        void onItemClick(View view, int position, Recomment data);
+        void onItemClick(View view, int position, Recommend data);
     }
 
     public class RecommendOnItemClickListener implements View.OnClickListener{
         private int position;
-        private Recomment data;
+        private Recommend data;
 
-        public RecommendOnItemClickListener(int position, Recomment recomment) {
+        public RecommendOnItemClickListener(int position, Recommend recommend) {
             this.position = position;
-            this.data = recomment;
+            this.data = recommend;
         }
 
         @Override

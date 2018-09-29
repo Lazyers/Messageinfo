@@ -1,6 +1,6 @@
-package com.example.strive.messageinfo;
+package com.example.strive.messageinfo.entity;
 
-public class Recomment { // todo 拼写错误
+public class Recommend {
     int headImage;
     String name;
     String introduce;

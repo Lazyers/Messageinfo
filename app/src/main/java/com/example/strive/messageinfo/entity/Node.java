@@ -1,4 +1,4 @@
-package com.example.strive.messageinfo;
+package com.example.strive.messageinfo.entity;
 
 import java.util.List;
 public class Node {
@@ -11,7 +11,7 @@ public class Node {
     private String commentContent;
     private int like;
     private String content;
-    private List<Recomment> recommentList;//todo 拼写错误 应该是recommend
+    private List<Recommend> recommendList;//
     private Status status;
 
     public Status getStatus() {
@@ -22,13 +22,13 @@ public class Node {
         this.status = status;
     }
 
-    public List<Recomment> getRecommentList() {
+    public List<Recommend> getRecommendList() {
 
-        return recommentList;
+        return recommendList;
     }
 
-    public void setRecommentList(List<Recomment> recommentList) {
-        this.recommentList = recommentList;
+    public void setRecommendList(List<Recommend> recommendList) {
+        this.recommendList = recommendList;
     }
 
     public String getCommentContent() {

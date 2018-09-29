@@ -1,4 +1,6 @@
-package com.example.strive.messageinfo;
+package com.example.strive.messageinfo.mvp;
+
+import com.example.strive.messageinfo.entity.Node;
 
 import java.util.List;
 

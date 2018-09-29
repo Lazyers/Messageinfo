@@ -1,14 +1,15 @@
-package com.example.strive.messageinfo;
+package com.example.strive.messageinfo.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.strive.messageinfo.R;
+import com.example.strive.messageinfo.entity.Status;
 
 public class UserWindow extends AppCompatActivity implements View.OnClickListener {
     private TextView statName,userNum,nodeNum,followNum,collectNum,readNum,creat,personCollect;
@@ -41,7 +42,7 @@ public class UserWindow extends AppCompatActivity implements View.OnClickListene
         followNum.setText("关注 ："+status.getFollowNum());
         collectNum.setText("收藏 ："+status.getCollectNum());
         readNum.setText("阅读 ："+status.getReadTime());
-        creat.setText(status.getPersonCreatNum()+"个创作专题");
+        creat.setText(status.getPersonCreateNum()+"个创作专题");
         personCollect.setText("收藏量 ："+status.getPersonCollectNum());
 
         userNum.setOnClickListener(this);

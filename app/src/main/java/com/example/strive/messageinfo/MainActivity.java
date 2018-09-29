@@ -9,6 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.strive.messageinfo.entity.Node;
+import com.example.strive.messageinfo.mvp.MessagePresenter;
+import com.example.strive.messageinfo.mvp.MessageView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,9 +58,9 @@ public class MainActivity extends AppCompatActivity implements MessageView {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-
+                adapters.setFootstat(2);
                 adapters.clear();
-                messagePresenter.getData();
+                messagePresenter.getData(1);
             }
         });
         recyclerView.setLayoutManager(
@@ -72,9 +76,22 @@ public class MainActivity extends AppCompatActivity implements MessageView {
             }
         });
         recyclerView.setAdapter(adapters);
-        messagePresenter.getData();
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                LinearLayoutManager linearLayoutManager =
+                        (LinearLayoutManager) recyclerView.getLayoutManager();
+                int lastItem = linearLayoutManager.findLastVisibleItemPosition();
+                if(newState == recyclerView.SCROLL_STATE_IDLE &&
+                        lastItem + 1 == adapters.getItemCount()){
+                        adapters.clear();
+                        messagePresenter.getData(2);
+                }
+            }
+        });
+        messagePresenter.getData(1);
     }
-
     @Override
     public void showData(List<Node> nodeList) {
         adapters.setList(nodeList);

@@ -1,4 +1,4 @@
-package com.example.strive.messageinfo;
+package com.example.strive.messageinfo.entity;
 
 import java.io.Serializable;
 
@@ -9,14 +9,14 @@ public class Status implements Serializable{
     private int collectNum;
     private String readTime;
     private int personCollectNum;
-    private int personCreatNum;//todo 拼写错误
+    private int personCreateNum;
 
-    public int getPersonCreatNum() {
-        return personCreatNum;
+    public int getPersonCreateNum() {
+        return personCreateNum;
     }
 
-    public void setPersonCreatNum(int personCreatNum) {
-        this.personCreatNum = personCreatNum;
+    public void setPersonCreateNum(int personCreateNum) {
+        this.personCreateNum = personCreateNum;
     }
 
     public int getUserNum() {

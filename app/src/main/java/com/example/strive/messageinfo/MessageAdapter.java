@@ -15,6 +15,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.strive.messageinfo.entity.Node;
+import com.example.strive.messageinfo.entity.Status;
+import com.example.strive.messageinfo.ui.UserWindow;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +30,12 @@ class MessageAdapter extends RecyclerView.Adapter< RecyclerView.ViewHolder> {
     RecommendRecycleAdapter adapter;
 
     private static final int NORMAL = 1;
-    private static final int RECOMMENG = 2; // todo 拼写错误
+    private static final int RECOMMEND = 2;
+    private static final int FOOT_VIEW = 3;
+
+    private static final int NOMORE = 1;
+    private static final int ISLOADING = 2;
+    int footstat = 0;
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
@@ -76,13 +85,22 @@ class MessageAdapter extends RecyclerView.Adapter< RecyclerView.ViewHolder> {
             recyclerView = itemView.findViewById(R.id.recomment_recycle);
         }
     }
+    class FootViewHolder extends RecyclerView.ViewHolder{
+        TextView footView;
+        public FootViewHolder(View itemView) {
+            super(itemView);
+            footView = itemView.findViewById(R.id.footview);
+        }
+    }
 
     @Override
     public int getItemViewType(int position) {
-        if (list.get(position).getRecommentList() == null) {
+        if(position == getItemCount()-1){
+            return FOOT_VIEW;
+        }else if (list.get(position).getRecommendList() == null) {
             return NORMAL;
         }
-        return RECOMMENG;
+        return RECOMMEND;
     }
 
     @NonNull
@@ -166,7 +184,7 @@ class MessageAdapter extends RecyclerView.Adapter< RecyclerView.ViewHolder> {
                 }
             });
             return holder;
-        } else {
+        } else if(viewType == RECOMMEND){
             view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.recommend_node_item,parent,false);
             RecommendViewHolder holder = new RecommendViewHolder(view);
@@ -175,6 +193,11 @@ class MessageAdapter extends RecyclerView.Adapter< RecyclerView.ViewHolder> {
                             parent.getContext(),
                             LinearLayoutManager.HORIZONTAL,
                             false));
+            return holder;
+        }else{
+            view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.foot_view_node_item,parent,false);
+            FootViewHolder holder = new FootViewHolder(view);
             return holder;
         }
     }
@@ -193,19 +216,33 @@ class MessageAdapter extends RecyclerView.Adapter< RecyclerView.ViewHolder> {
             ((MessageAdapter.ViewHolder)holder).type.setText(node.getType());
             ((MessageAdapter.ViewHolder)holder).content.setText(node.getContent());
             ((MessageAdapter.ViewHolder)holder).dz.setText(node.getLike() + "");
-        } else {
-            // recommend
+        } else if(getItemViewType(position) == RECOMMEND){
             adapter = new RecommendRecycleAdapter();
-            adapter.setData(list.get(position).getRecommentList());
+            adapter.setData(list.get(position).getRecommendList());
             ((RecommendViewHolder)holder).recyclerView.setAdapter(adapter);
+        }else{
+            FootViewHolder footViewHolder = (FootViewHolder) holder;
+            if(position == 0){
+                footViewHolder.footView.setText("");
+            }
+            switch (footstat){
+                case NOMORE :
+                    footViewHolder.footView.setText("没有更多");
+                    break;
+                case ISLOADING :
+                    footViewHolder.footView.setText("");
+                    break;
+            }
         }
-
-
+    }
+    public void setFootstat(int footstat){
+        this.footstat = footstat;
+        notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return list.size()+1;
     }
 
     public interface OnItemClickListener {
