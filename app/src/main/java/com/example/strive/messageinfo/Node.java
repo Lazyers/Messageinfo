@@ -11,7 +11,7 @@ public class Node {
     private String commentContent;
     private int like;
     private String content;
-    private List<Recomment> recommentList;
+    private List<Recomment> recommentList;//todo 拼写错误 应该是recommend
     private Status status;
 
     public Status getStatus() {

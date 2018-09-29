@@ -9,7 +9,7 @@ public class Status implements Serializable{
     private int collectNum;
     private String readTime;
     private int personCollectNum;
-    private int personCreatNum;
+    private int personCreatNum;//todo 拼写错误
 
     public int getPersonCreatNum() {
         return personCreatNum;

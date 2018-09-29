@@ -6,18 +6,38 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+// todo Java文件应该根据功能的不同放在不同的包里
+/**
+ * com.example.strive.messageinfo下有如下包：
+ *
+ * ui : 放 activity 和 fragment
+ *
+ * adapter:
+ *
+ * mvp:
+ *      view:
+ *      presenter:
+ *      model:
+ *
+ * entity: 数据源类
+ *
+ * Custom：自定义view
+ *
+ *
+ *
+ *
+ */
+
 public class MainActivity extends AppCompatActivity implements MessageView {
     MessagePresenter messagePresenter;
     RecyclerView recyclerView;
-    MessageAdapters adapters;
+    MessageAdapter adapters;
     SwipeRefreshLayout swipeRefreshLayout;
     List<Node> list = new ArrayList<>();
 
@@ -44,8 +64,8 @@ public class MainActivity extends AppCompatActivity implements MessageView {
                         this,
                         LinearLayoutManager.VERTICAL,
                         false));
-        adapters = new MessageAdapters(this);
-        adapters.setOnItemClickListener(new MessageAdapters.OnItemClickListener() {
+        adapters = new MessageAdapter(this);
+        adapters.setOnItemClickListener(new MessageAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position, Node data) {
                 Toast.makeText(MainActivity.this, "点击了", Toast.LENGTH_SHORT).show();

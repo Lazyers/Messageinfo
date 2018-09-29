@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.view.PagerAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,7 +18,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-class MessageAdapters extends RecyclerView.Adapter< RecyclerView.ViewHolder> {
+class MessageAdapter extends RecyclerView.Adapter< RecyclerView.ViewHolder> {
 
     private List<Node> list = new ArrayList<>();
     private OnItemClickListener onItemClickListener;
@@ -27,7 +26,7 @@ class MessageAdapters extends RecyclerView.Adapter< RecyclerView.ViewHolder> {
     RecommendRecycleAdapter adapter;
 
     private static final int NORMAL = 1;
-    private static final int RECOMMENG = 2;
+    private static final int RECOMMENG = 2; // todo 拼写错误
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
@@ -38,7 +37,7 @@ class MessageAdapters extends RecyclerView.Adapter< RecyclerView.ViewHolder> {
         notifyDataSetChanged();
     }
 
-    public MessageAdapters(Activity activity) {
+    public MessageAdapter(Activity activity) {
         this.activity = activity;
     }
 
@@ -188,12 +187,12 @@ class MessageAdapters extends RecyclerView.Adapter< RecyclerView.ViewHolder> {
                         new MyOnItemClickListener(position, list.get(adapterPostion)));
             }
             Node node = list.get(position);
-            ((MessageAdapters.ViewHolder)holder).imageView.setBackgroundResource(node.imageURL);
-            ((MessageAdapters.ViewHolder)holder).name.setText(node.getName());
-            ((MessageAdapters.ViewHolder)holder).date.setText(node.getData());
-            ((MessageAdapters.ViewHolder)holder).type.setText(node.getType());
-            ((MessageAdapters.ViewHolder)holder).content.setText(node.getContent());
-            ((MessageAdapters.ViewHolder)holder).dz.setText(node.getLike() + "");
+            ((MessageAdapter.ViewHolder)holder).imageView.setBackgroundResource(node.getImageURL());
+            ((MessageAdapter.ViewHolder)holder).name.setText(node.getName());
+            ((MessageAdapter.ViewHolder)holder).date.setText(node.getData());
+            ((MessageAdapter.ViewHolder)holder).type.setText(node.getType());
+            ((MessageAdapter.ViewHolder)holder).content.setText(node.getContent());
+            ((MessageAdapter.ViewHolder)holder).dz.setText(node.getLike() + "");
         } else {
             // recommend
             adapter = new RecommendRecycleAdapter();
