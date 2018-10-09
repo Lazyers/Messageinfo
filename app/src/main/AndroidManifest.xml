@@ -20,7 +20,7 @@
             android:theme="@style/Theme.AppCompat.Light.Dialog">
         </activity>
         <activity android:name=".ui.PersonAllInformationActivity"
-            android:windowSoftInputMode="adjustUnspecified">
+                android:windowSoftInputMode="stateHidden|adjustResize">
         </activity>
     </application>
 </manifest>

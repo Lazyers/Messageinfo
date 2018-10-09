@@ -30,6 +30,7 @@ public class MessageAdapter extends RecyclerView.Adapter< RecyclerView.ViewHolde
     private OnItemClickListener onItemClickListener;
     private Activity activity;
     RecommendRecycleAdapter adapter;
+    private boolean flag = true;
 
     private static final int NORMAL = 1;
     private static final int RECOMMEND = 2;
@@ -168,7 +169,6 @@ public class MessageAdapter extends RecyclerView.Adapter< RecyclerView.ViewHolde
                 }
             });
             holder.dz.setOnClickListener(new View.OnClickListener() {
-                boolean flag = true;
                 @Override
                 public void onClick(View v) {
                     int position = holder.getAdapterPosition();
@@ -194,6 +194,7 @@ public class MessageAdapter extends RecyclerView.Adapter< RecyclerView.ViewHolde
                     Node node = list.get(position);
                     bundle.putSerializable("node",node);
                     intent.putExtras(bundle);
+                    intent.putExtra("flag",flag);
                     activity.startActivity(intent);
                 }
             });
