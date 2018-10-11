@@ -5,6 +5,9 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +17,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.strive.messageinfo.R;
+import com.example.strive.messageinfo.adapter.CommentListAdapter;
 import com.example.strive.messageinfo.entity.Node;
 
 public class PersonAllInformationFragment extends Fragment implements View.OnClickListener {
     public TextView name,title,date,content,like;
     private Node node;
+    private RecyclerView commentList;
+    public CommentListAdapter adapter;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -29,14 +35,21 @@ public class PersonAllInformationFragment extends Fragment implements View.OnCli
         date = view.findViewById(R.id.alldate);
         content = view.findViewById(R.id.allContent);
         like = view.findViewById(R.id.like);
-
+        commentList = view.findViewById(R.id.CommentList);
         name.setText(node.getName());
         title.setText(node.getContent());
         date.setText(node.getData());
         content.setText(node.getContent());
         like.setText(node.getLike()+"人点赞");
-
         name.setOnClickListener(this);
+
+        commentList.setLayoutManager(new LinearLayoutManager(
+                getActivity(),LinearLayoutManager.VERTICAL,false));
+        adapter = new CommentListAdapter();
+        adapter.setData(node.getCommentInfoList());
+        commentList.addItemDecoration(new DividerItemDecoration(getActivity(),LinearLayoutManager.VERTICAL));
+        commentList.setAdapter(adapter);
+
         return view;
     }
     public void setNode(Node node){

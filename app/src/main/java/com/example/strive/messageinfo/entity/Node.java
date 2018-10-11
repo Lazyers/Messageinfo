@@ -9,7 +9,7 @@ public class Node implements Serializable {
     private int stat;
     private String type;
     private int comment;
-    private String commentContent;
+    private List<CommentInfo> commentInfoList;
     private int like;
     private String content;
     private List<Recommend> recommendList;//
@@ -32,12 +32,12 @@ public class Node implements Serializable {
         this.recommendList = recommendList;
     }
 
-    public String getCommentContent() {
-        return commentContent;
+    public List<CommentInfo> getCommentInfoList() {
+        return commentInfoList;
     }
 
-    public void setCommentContent(String commentContent) {
-        this.commentContent = commentContent;
+    public void setCommentInfoList(List<CommentInfo> commentInfoList) {
+        this.commentInfoList = commentInfoList;
     }
 
     public int getImageURL() {

@@ -8,14 +8,10 @@
     android:orientation="vertical">
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/allInformation">
-    </FrameLayout>
-    <View
-        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/bottom_view"/>
+        android:id="@+id/allInformation"
+        android:layout_weight="1">
+    </FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,7 +22,8 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:text="+"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:id="@+id/function"/>
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -63,8 +60,11 @@
             android:text="完成"
             android:textSize="8dp"
             android:visibility="gone"/>
-
-
     </LinearLayout>
-
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/viewpage"
+        android:visibility="gone">
+    </android.support.v4.view.ViewPager>
 </LinearLayout>

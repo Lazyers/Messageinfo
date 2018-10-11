@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -192,6 +193,7 @@ public class MessageAdapter extends RecyclerView.Adapter< RecyclerView.ViewHolde
                     Intent intent = new Intent(activity,PersonAllInformationActivity.class);
                     Bundle bundle = new Bundle();
                     Node node = list.get(position);
+
                     bundle.putSerializable("node",node);
                     intent.putExtras(bundle);
                     intent.putExtra("flag",flag);

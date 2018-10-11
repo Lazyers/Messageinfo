@@ -3,6 +3,7 @@ package com.example.strive.messageinfo.mvp;
 import android.os.Handler;
 
 import com.example.strive.messageinfo.R;
+import com.example.strive.messageinfo.entity.CommentInfo;
 import com.example.strive.messageinfo.entity.Recommend;
 import com.example.strive.messageinfo.entity.Node;
 import com.example.strive.messageinfo.entity.Status;
@@ -24,6 +25,7 @@ public class MessageModel {
     }
     private static void showData(int flag,final MessageCallback callback){
         List<Node> list = new ArrayList<>();
+        List<CommentInfo> commentList = new ArrayList<>();
 
         if(flag == 1){
             for (int i = num; i > 0; i--) {
@@ -43,6 +45,12 @@ public class MessageModel {
                 status.setReadTime("1123小时12分钟"+i);
                 status.setPersonCreateNum(14*i);
                 status.setPersonCollectNum(167*i);
+//                CommentInfo commentInfo = new CommentInfo();
+//                commentInfo.setName("张三"+i);
+//                commentInfo.setDate("2018-10-19");
+//                commentInfo.setImageURL(R.drawable.plxl);
+//                commentList.add(commentInfo);
+//                node.setCommentInfoList(commentList);
                 node.setStatus(status);
                 list.add(node);
             }
@@ -78,6 +86,13 @@ public class MessageModel {
                 status.setReadTime("1123小时12分钟"+i);
                 status.setPersonCreateNum(4*i);
                 status.setPersonCollectNum(67*i);
+                CommentInfo commentInfo = new CommentInfo();
+                commentInfo.setName("张三"+i);
+                commentInfo.setDate("2018-10-19");
+                commentInfo.setComtent("具体的内容");
+                commentInfo.setImageURL(R.drawable.plxl);
+                commentList.add(commentInfo);
+                node.setCommentInfoList(commentList);
                 node.setStatus(status);
                 list.add(node);
             }
